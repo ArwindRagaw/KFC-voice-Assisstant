@@ -13,23 +13,36 @@ Additional Functionalities: Provide current time, play songs on YouTube, answer 
 Web Integration: Deploy the assistant using Flask and Gunicorn for broader accessibility.
 # Getting Started Prerequisites
 Python 3.x
+
 speech_recognition
+
 pyttsx3
+
 pywhatkit
+
 datetime
+
 wikipedia
+
 pyjokes
+
 Flask
-Gunicorn
-Installation
+
+Gunicorn Installation
 
 # Usage
 Greet the assistant: "Alexa, what would you like to order today?"
+
 Place an order: "Alexa, order [food item]"
+
 Apply special offers: "Alexa, apply discount"
+
 Check total amount: "Alexa, total"
+
 Get special offers: "Alexa, special offer"
+
 End session: "Alexa, thank you"
+
 # Special Offers
 "Hot and Crispy Combo" at a 10% discount
 
@@ -39,6 +52,7 @@ Combo of the day: "Buy one Classic Zinger Combo and get a free drink"
 
 # Acknowledgements
 Python community for the amazing libraries
+
 OpenAI for the language model
 
 
