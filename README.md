@@ -5,12 +5,19 @@ The Voice Food Order Assistant is a Python-based virtual assistant designed to s
 
 # Features
 Voice Recognition: Capture and process voice commands using speech_recognition.
+
 Text-to-Speech: Convert text responses into speech using pyttsx3.
+
 Order Management: Maintain and manage a list of customer orders.
+
 Total Calculation: Calculate the total amount due, including handling special discounts.
+
 Special Offers: Announce and apply special offers and combo deals.
+
 Additional Functionalities: Provide current time, play songs on YouTube, answer general knowledge queries, and tell jokes.
+
 Web Integration: Deploy the assistant using Flask and Gunicorn for broader accessibility.
+
 # Getting Started Prerequisites
 Python 3.x
 
