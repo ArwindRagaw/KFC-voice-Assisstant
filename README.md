@@ -23,54 +23,7 @@ pyjokes
 Flask
 Gunicorn
 Installation
-Clone the repository:
 
-sh
-Copy code
-git clone https://github.com/yourusername/voice-food-order-assistant.git
-cd voice-food-order-assistant
-Install the required packages:
-
-sh
-Copy code
-pip install -r requirements.txt
-Running the Application
-Start the Flask app locally:
-
-sh
-Copy code
-python app.py
-Run the Flask app with Gunicorn:
-
-sh
-Copy code
-gunicorn app:app
-Deploying to Heroku
-Login to Heroku:
-
-sh
-Copy code
-heroku login
-Create a new Heroku app:
-
-sh
-Copy code
-heroku create your-app-name
-Add Heroku remote repository:
-
-sh
-Copy code
-heroku git:remote -a your-app-name
-Push the code to Heroku:
-
-sh
-Copy code
-git push heroku master
-Open your app in the browser:
-
-sh
-Copy code
-heroku open
 Usage
 Greet the assistant: "Alexa, what would you like to order today?"
 Place an order: "Alexa, order [food item]"
