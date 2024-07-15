@@ -32,13 +32,15 @@ Get special offers: "Alexa, special offer"
 End session: "Alexa, thank you"
 # Special Offers
 "Hot and Crispy Combo" at a 10% discount
+
 "Signature Bucket" at a 15% discount
+
 Combo of the day: "Buy one Classic Zinger Combo and get a free drink"
 
 # Acknowledgements
 Python community for the amazing libraries
 OpenAI for the language model
-This README file provides a concise yet comprehensive overview of your project, including features, setup instructions, usage examples, and additional information. Adjust the details as necessary to fit your project's specifics.
+
 
 
 
