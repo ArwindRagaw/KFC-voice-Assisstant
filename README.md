@@ -3,7 +3,7 @@ Voice Food Order Assistant
 Overview
 The Voice Food Order Assistant is a Python-based virtual assistant designed to streamline the food ordering process in restaurants and hotels. Utilizing voice recognition and text-to-speech technologies, the assistant can take customer orders, provide information on menu items, apply special discounts, and calculate the total amount due. The assistant also announces special offers and combo deals, enhancing the overall customer experience.
 
-Features
+# Features
 Voice Recognition: Capture and process voice commands using speech_recognition.
 Text-to-Speech: Convert text responses into speech using pyttsx3.
 Order Management: Maintain and manage a list of customer orders.
@@ -35,8 +35,6 @@ Special Offers
 "Hot and Crispy Combo" at a 10% discount
 "Signature Bucket" at a 15% discount
 Combo of the day: "Buy one Classic Zinger Combo and get a free drink"
-License
-This project is licensed under the MIT License.
 
 Acknowledgements
 Python community for the amazing libraries
