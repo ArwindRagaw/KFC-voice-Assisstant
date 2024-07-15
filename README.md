@@ -1,4 +1,4 @@
-# KFC-voice-Assisstent
+# KFC-voice-Assisstant
 Voice Food Order Assistant
 Overview
 The Voice Food Order Assistant is a Python-based virtual assistant designed to streamline the food ordering process in restaurants and hotels. Utilizing voice recognition and text-to-speech technologies, the assistant can take customer orders, provide information on menu items, apply special discounts, and calculate the total amount due. The assistant also announces special offers and combo deals, enhancing the overall customer experience.
