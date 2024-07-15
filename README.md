@@ -11,8 +11,7 @@ Total Calculation: Calculate the total amount due, including handling special di
 Special Offers: Announce and apply special offers and combo deals.
 Additional Functionalities: Provide current time, play songs on YouTube, answer general knowledge queries, and tell jokes.
 Web Integration: Deploy the assistant using Flask and Gunicorn for broader accessibility.
-Getting Started
-Prerequisites
+# Getting Started Prerequisites
 Python 3.x
 speech_recognition
 pyttsx3
@@ -24,19 +23,19 @@ Flask
 Gunicorn
 Installation
 
-Usage
+# Usage
 Greet the assistant: "Alexa, what would you like to order today?"
 Place an order: "Alexa, order [food item]"
 Apply special offers: "Alexa, apply discount"
 Check total amount: "Alexa, total"
 Get special offers: "Alexa, special offer"
 End session: "Alexa, thank you"
-Special Offers
+# Special Offers
 "Hot and Crispy Combo" at a 10% discount
 "Signature Bucket" at a 15% discount
 Combo of the day: "Buy one Classic Zinger Combo and get a free drink"
 
-Acknowledgements
+# Acknowledgements
 Python community for the amazing libraries
 OpenAI for the language model
 This README file provides a concise yet comprehensive overview of your project, including features, setup instructions, usage examples, and additional information. Adjust the details as necessary to fit your project's specifics.
