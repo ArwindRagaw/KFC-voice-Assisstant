@@ -1,21 +1,26 @@
+import streamlit as st
 import speech_recognition as sr
 import pyttsx3
 import pywhatkit
 import datetime
 import wikipedia
 import pyjokes
+from langchain_community.llms import Ollama
 
+# Initialize the recognizer and TTS engine
 listener = sr.Recognizer()
 engine = pyttsx3.init()
 voices = engine.getProperty('voices')
 engine.setProperty('voice', voices[1].id)
 
+# Initialize orders and discount flag
 orders = []
 special_offer_applied = False
 
+# Menu with items and potential discounts
 hotel_menu = {
-    "hot and crispy combo": {"price": 299, "discount": 10},  # Example discount of 10%
-    "signature bucket": {"price": 599, "discount": 15},    # Example discount of 15%
+    "hot and crispy combo": {"price": 299, "discount": 10},
+    "signature bucket": {"price": 599, "discount": 15},
     "special 11 meal": {"price": 435},
     "hitter savings": {"price": 349},
     "classic zinger combo": {"price": 199},
@@ -25,7 +30,7 @@ hotel_menu = {
     "leg piece deal": {"price": 399},
     "new chicken longer": {"price": 179},
     "new single chicken rolls": {"price": 149},
-    "new rizo rice bowlz": {"price": 199},
+    "new rizo rice bowls": {"price": 199},
     "family deal": {"price": 699},
     "classic zinger": {"price": 199},
     "caribbean spicy zinger": {"price": 199},
@@ -41,24 +46,27 @@ hotel_menu = {
     "add-ons": {"price": "Varies"}
 }
 
+# Text-to-speech function
 def talk(text):
     engine.say(text)
     engine.runAndWait()
 
+# Greeting function
 def greet():
     talk('Hello! I am Alexa, your virtual assistant. What would you like to order today?')
 
+# Function to capture voice commands
 def take_command():
     try:
         with sr.Microphone() as source:
-            print('Listening...')
+            st.write('Listening...')
             listener.adjust_for_ambient_noise(source)
             voice = listener.listen(source)
             command = listener.recognize_google(voice)
             command = command.lower()
             if 'alexa' in command:
                 command = command.replace('alexa', '')
-            print(command)
+            st.write(command)
             return command
     except sr.UnknownValueError:
         talk("Sorry, I didn't understand that.")
@@ -67,6 +75,7 @@ def take_command():
         talk("Sorry, my speech service is down.")
         return ""
 
+# Function to add order items
 def add_order(order_item):
     global special_offer_applied
     if order_item in hotel_menu:
@@ -80,15 +89,21 @@ def add_order(order_item):
     else:
         talk(f'Sorry, {order_item} is not available on the menu.')
 
+# Function to calculate the total order cost
 def calculate_total():
     total = sum(item["price"] for item in orders)
     return total
 
+# Initialize the LLM
+llm = Ollama(model="llama3:8b")
+
+# Function to apply special offers
 def apply_discount():
     global special_offer_applied
     special_offer_applied = True
     talk("Special offer applied. Discounts will now be applied to your orders.")
 
+# Function to announce specials
 def announce_specials():
     specials = [
         "Today's special offer: Get 10% off on the Signature Bucket.",
@@ -97,8 +112,17 @@ def announce_specials():
     for special in specials:
         talk(special)
 
-def run_alexa():
+# Function to handle LLM responses
+def handle_llama_response(query):
+    response = llm.invoke(query)
+    return response
+
+# Streamlit interface
+st.title("Voice Assistant Ordering System")
+
+if st.button('Start Voice Assistant'):
     greet()  # Greet the user
+
     while True:
         command = take_command()
         if command:
@@ -125,16 +149,14 @@ def run_alexa():
             elif 'total' in command:
                 total = calculate_total()
                 talk(f'Your total amount is {total:.2f} rupees.')
-                print(f'Orders: {orders}')
-                print(f'Total amount: {total:.2f} rupees.')
+                st.write(f'Orders: {orders}')
+                st.write(f'Total amount: {total:.2f} rupees.')
             elif 'special offer' in command:
                 announce_specials()
             elif 'discount' in command:
                 apply_discount()
             elif 'thank you' in command:
-                talk('Thank you for being our valued customer. We are grateful for the pleasure of serving you')
-
-while True:
-    run_alexa()
-    
-
+                talk('Thank you for being our valued customer. We are grateful for the pleasure of serving you.')
+            else:
+                response = handle_llama_response(command)
+                talk(response)
